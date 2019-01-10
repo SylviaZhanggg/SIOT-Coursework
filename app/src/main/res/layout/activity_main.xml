@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+
+              android:orientation="vertical" >
+    <RelativeLayout
+        android:id="@+id/loginTop_setting"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:background="@color/black"
+        android:orientation="horizontal" >
+
+
+        <TextView
+            android:id="@+id/loginText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="IOT Monitor"
+            android:textColor="@color/white"
+            android:textSize="25dp" android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"/>
+
+
+
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+
+    >
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+        >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Temperature: "
+                android:textColor="@color/black"
+                android:textSize="30dp"/>
+
+            <TextView
+                android:id="@+id/temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gold"
+
+                android:textSize="30sp"
+            />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+    >
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Humidity: "
+            android:textColor="@color/black"
+            android:textSize="30dp"/>
+
+        <TextView
+            android:id="@+id/hum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/crimson"
+            android:textSize="30sp"
+        />
+
+
+
+
+    </LinearLayout>
+
+
+    <lecho.lib.hellocharts.view.LineChartView
+        android:id="@+id/line_chart"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="#ffffff"/>
+
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+
+            android:textColor="@color/red"
+        />
+
+    </LinearLayout>
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btn_network"
+            android:layout_width="0dp"
+            android:layout_height="40sp"
+            android:layout_weight="1"
+            android:text="Connections"
+
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:background="@drawable/button_new" />
+
+
+        <Button
+            android:id="@+id/btn_exit"
+            android:layout_width="0sp"
+            android:layout_height="40sp"
+            android:layout_weight="1"
+            android:text="Exit"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:background="@drawable/button_new" />
+
+
+    </TableRow>
+
+
+
+</LinearLayout>
