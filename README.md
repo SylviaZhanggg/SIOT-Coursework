@@ -6,4 +6,4 @@ In here you can find:
   
   1.Source code
   2.Android application package (.apk)
-  3.Link to a demo video
+  3.Link to a demo video https://www.youtube.com/watch?v=dqPuQQqfZvc 
