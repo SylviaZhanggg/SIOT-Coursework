@@ -39,7 +39,7 @@ public class ClientThread extends Thread {
 		iPort =port;
 	}
 	/**
-	 * 连接
+	 * connect
 	 */
 	void connect() {
 		key = true;
@@ -55,30 +55,30 @@ public class ClientThread extends Thread {
 			message = MainActivity.mainHandler.obtainMessage(0);  //
 			MainActivity.mainHandler.sendMessage(message);
 
-			//printClass.printf("连接成功");
+			//printClass.printf("connected");
 
 
 			MainActivity.mainHandler.post(new Runnable() {
 				public void run() {
-					//Activity1.ptext.setText("链接成功");
+					//Activity1.ptext.setText("connected");
 
 
 				}
 
 			});
 
-			rxThread = new RxThread();  //创建消息接受线程
+			rxThread = new RxThread();  //
 			rxThread.start();
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 
-			//printClass.printf("无法连接到服务器");
+			//printClass.printf("failed to connect");
 			message = MainActivity.mainHandler.obtainMessage(1);  //
 			MainActivity.mainHandler.sendMessage(message);
 
-			Log.d("Error", "与服务端连接失败...");
+			Log.d("Error", "failed to connect...");
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 
@@ -88,21 +88,21 @@ public class ClientThread extends Thread {
 
 	void initChildHandler() {
 
-		// 在子线程中创建Handler必须初始化Looper
+		
 		Looper.prepare();
 
 		childHandler = new Handler() {
 			/**
-			 * 子线程消息处理中心
+			 * 
 			 */
 			public void handleMessage(Message msg) {
 
-				// 接收主线程及其他线程的消息并处理...
+				// 
 				switch (msg.what) {
 					case 0:
 						int len = msg.arg1;
 						try {
-							//十六进制数
+							//
 
 							outputStream.write((byte [])msg.obj, 0, len);
 							//outputStream.write(((String) (msg.obj)).getBytes());
@@ -125,7 +125,7 @@ public class ClientThread extends Thread {
 							e1.printStackTrace();
 						}
 
-						childHandler.getLooper().quit();// 结束消息队列
+						childHandler.getLooper().quit();// 
 
 
 
@@ -138,7 +138,7 @@ public class ClientThread extends Thread {
 			}
 		};
 
-		// 启动该线程的消息队列
+		// 
 		Looper.loop();
 
 	}
@@ -146,7 +146,7 @@ public class ClientThread extends Thread {
 	public void run() {
 		connect();
 		initChildHandler();
-		//printClass.printf("链接网络");
+		//printClass.printf("connect to Internet");
 
 	}
 
@@ -159,7 +159,7 @@ public class ClientThread extends Thread {
 
 		public void run() {
 
-			//printClass.printf("启动接收线程");
+			//printClass.printf("Start receiving");
 			byte[] buffer = new byte[1024];
 
 			while (key) {
@@ -187,7 +187,7 @@ public class ClientThread extends Thread {
 						Log.d("error:", "close connect...");
 						message = MainActivity.mainHandler.obtainMessage(3);  //
 						MainActivity.mainHandler.sendMessage(message);
-						//	printClass.printf("与服务器断开连接");
+						//	printClass.printf("Disconnect from the server");
 						break;
 
 					}
@@ -197,7 +197,7 @@ public class ClientThread extends Thread {
 			}
 
 			try {
-				if (socket.isConnected())          //key为false时关闭socket
+				if (socket.isConnected())          //key=false, switch off socket
 					socket.close();
 
 			} catch (IOException e) {
